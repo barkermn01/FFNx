@@ -87,7 +87,6 @@ target_compile_options(${RELEASE_NAME}
 	PRIVATE /EHsc
     PRIVATE /std:c++17
     PRIVATE /w
-    PRIVATE /Ox
 )
 target_link_options(${RELEASE_NAME}
     PRIVATE /PDBALTPATH:${RELEASE_NAME}.pdb
