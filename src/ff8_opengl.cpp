@@ -724,19 +724,16 @@ ff8_draw_menu_sprite_texture_infos_short *ff8_draw_icon_or_key6(int a1, ff8_draw
 
 int ff8_is_window_active()
 {
-	if (gameHwnd == GetActiveWindow())
+	ff8_externals.engine_eval_keyboard_gamepad_input();
+	ff8_externals.has_keyboard_gamepad_input();
+
+	if (simulate_OK_button)
 	{
-		ff8_externals.engine_eval_keyboard_gamepad_input();
-		ff8_externals.has_keyboard_gamepad_input();
+		// Flag the button OK as pressed
+		ff8_externals.engine_input_confirmed_buttons[1] = ff8_externals.engine_input_valid_buttons[1] = 0x40;
 
-		if (simulate_OK_button)
-		{
-			// Flag the button OK as pressed
-			ff8_externals.engine_input_confirmed_buttons[1] = ff8_externals.engine_input_valid_buttons[1] = 0x40;
-
-			// End simulation right here before we press this button by mistake in other windows
-			simulate_OK_button = false;
-		}
+		// End simulation right here before we press this button by mistake in other windows
+		simulate_OK_button = false;
 	}
 
 	return 0;
