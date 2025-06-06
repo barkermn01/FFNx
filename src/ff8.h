@@ -753,7 +753,7 @@ struct ff8_game_obj
 	void *d3dmaterial;
 	uint32_t field_2D8;
 	void *d3d2interface;
-	uint32_t dummy1[0xD];
+	uint32_t dummy1[0xC];
 	void *d3d2device;
 	void *d3dviewport2;
 	uint32_t dummy2[0x6];
