@@ -84,8 +84,8 @@ void ff8gl_field_78(struct ff8_polygon_set *polygon_set, struct ff8_game_obj *ga
 
 		if(hundred_data)
 		{
-			if(game_object->field_91C && hundred_data->zsort) zsort = true;
-			else if(!game_object->field_928) defer = (hundred_data->options & (BIT(V_ALPHABLEND) | BIT(V_TMAPBLEND)));
+			if(game_object->field_99C && hundred_data->zsort) zsort = true;
+			else if(!game_object->something_field_84) defer = (hundred_data->options & (BIT(V_ALPHABLEND) | BIT(V_TMAPBLEND)));
 		}
 
 		if(!defer) common_setrenderstate(hundred_data, (struct game_obj *)game_object);
@@ -1398,8 +1398,8 @@ void ff8_init_hooks(struct game_obj *_game_object)
 	struct ff8_game_obj *game_object = (struct ff8_game_obj *)_game_object;
 
 	game_object->dddevice = &_fake_dddevice;
-	game_object->front_surface[0] = &_fake_dd_front_surface;
-	game_object->front_surface[1] = &_fake_dd_back_surface;
+	game_object->front_surface[0] = (LPDIRECTDRAWSURFACE)&_fake_dd_front_surface;
+	game_object->front_surface[1] = (LPDIRECTDRAWSURFACE)&_fake_dd_back_surface;
 	game_object->dd2interface = &_fake_dddevice;
 	game_object->d3d2device = &_fake_d3d2device;
 

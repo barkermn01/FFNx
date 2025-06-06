@@ -2186,7 +2186,7 @@ void internal_set_renderstate(uint32_t state, uint32_t option, struct game_obj *
 
 		// texture filtering, can be disabled globally via config file
 		case V_LINEARFILTER:
-			if((option && !VREF(game_object, field_988))) current_state.texture_filter = true;
+			if((option && !VREF(game_object, texture_filter))) current_state.texture_filter = true;
 			else current_state.texture_filter = false;
 			break;
 
@@ -2290,7 +2290,7 @@ void common_setrenderstate(struct p_hundred *hundred_data, struct game_obj *game
 
 	uint32_t features = hundred_data->features;
 	uint32_t options = hundred_data->options;
-	struct struc_81 *struc_81 = VREF(game_object, field_944);
+	struct struc_81 *struc_81 = VREF(game_object, struc_81);
 
 	if(trace_all) ffnx_trace("dll_gfx: setrenderstate 0x%x 0x%x\n", features, options);
 
@@ -2313,7 +2313,7 @@ void common_setrenderstate(struct p_hundred *hundred_data, struct game_obj *game
 
 		if(CHECK_BIT(options, V_ALPHABLEND))
 		{
-			if(VREF(game_object, field_93C))
+			if(VREF(game_object, alpha_blend))
 			{
 				if(VREF(game_object, current_hundred))
 					struc_81->blend_mode = VREF(game_object, current_hundred->blend_mode);
@@ -2329,7 +2329,7 @@ void common_setrenderstate(struct p_hundred *hundred_data, struct game_obj *game
 	if(CHECK_BIT(features, V_NOCULL)) internal_set_renderstate(V_NOCULL, CHECK_BIT(options, V_NOCULL), game_object);
 	if(CHECK_BIT(features, V_DEPTHTEST)) internal_set_renderstate(V_DEPTHTEST, CHECK_BIT(options, V_DEPTHTEST), game_object);
 	if(CHECK_BIT(features, V_DEPTHMASK)) internal_set_renderstate(V_DEPTHMASK, CHECK_BIT(options, V_DEPTHMASK), game_object);
-	if(CHECK_BIT(features, V_SHADEMODE)) internal_set_renderstate(V_SHADEMODE, CHECK_BIT(options, V_SHADEMODE) && !VREF(game_object, field_92C) && hundred_data->shademode > 0, game_object);
+	if(CHECK_BIT(features, V_SHADEMODE)) internal_set_renderstate(V_SHADEMODE, CHECK_BIT(options, V_SHADEMODE) && !VREF(game_object, shademode) && hundred_data->shademode > 0, game_object);
 	if(CHECK_BIT(features, V_UNKNOWNFFFDFFFD))
 	{
 		// Safe default
@@ -2337,7 +2337,7 @@ void common_setrenderstate(struct p_hundred *hundred_data, struct game_obj *game
 
 		if(CHECK_BIT(options, V_ALPHABLEND))
 		{
-			if(VREF(game_object, field_93C))
+			if(VREF(game_object, alpha_blend))
 			{
 				if(VREF(game_object, current_hundred))
 					struc_81->blend_mode = VREF(game_object, current_hundred->blend_mode);
@@ -2426,7 +2426,7 @@ void common_field_84(uint32_t unknown, struct game_obj *game_object)
 
 	if(!VREF(game_object, in_scene)) return;
 
-	VRASS(game_object, field_928, unknown);
+	VRASS(game_object, something_field_84, unknown);
 
 	if(!unknown)
 	{

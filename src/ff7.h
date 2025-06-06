@@ -1810,14 +1810,14 @@ struct ff7_game_obj
 	uint32_t field_91C;
 	void *_3d2d_something;
 	uint32_t field_924;
-	uint32_t field_928;
-	uint32_t field_92C;
+	uint32_t something_field_84;
+	uint32_t shademode;
 	uint32_t field_930;
 	struct gfx_driver *gfx_driver;
 	void *_3dobject_pool;
-	uint32_t field_93C;
+	uint32_t alpha_blend;
 	struct p_hundred *current_hundred;
-	struct struc_81 *field_944;
+	struct struc_81 *struc_81;
 	uint32_t field_948;
 	uint32_t field_94C;
 	uint32_t field_950;
@@ -1834,7 +1834,7 @@ struct ff7_game_obj
 	uint32_t field_97C;
 	uint32_t field_980;
 	uint32_t d3d2_flag;
-	uint32_t field_988;
+	uint32_t texture_filter;
 	uint32_t field_98C;
 	uint32_t field_990;
 	uint32_t field_994;
