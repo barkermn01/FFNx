@@ -306,7 +306,7 @@ void read_cfg()
 	external_audio_number_of_channels = config["external_audio_number_of_channels"].value_or(2);
 	external_audio_sample_rate = config["external_audio_sample_rate"].value_or(44100);
 	ff8_worldmap_internal_highres_textures = config["ff8_worldmap_internal_highres_textures"].value_or(true);
-	ff8_require_focus_for_input = config["ff8_require_focus_for_input"].value_or(true);
+	ff8_require_focus_for_input = config["ff8_require_focus_for_input"].value_or(false);
 	ff8_fix_uv_coords_precision = config["ff8_fix_uv_coords_precision"].value_or(true);
 	ff8_external_music_force_original_filenames = config["ff8_external_music_force_original_filenames"].value_or(false);
 	ff8_use_gamepad_icons = config["ff8_use_gamepad_icons"].value_or(false);

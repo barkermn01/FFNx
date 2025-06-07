@@ -742,7 +742,7 @@ ff8_use_gamepad_icons = false
 # Require the window to be focused to read input events
 # By default this is true
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ff8_require_focus_for_input = true
+ff8_require_focus_for_input = false
 
 # FPS Limiter
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
