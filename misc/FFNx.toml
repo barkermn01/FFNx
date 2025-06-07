@@ -739,10 +739,10 @@ ff8_external_music_force_original_filenames = false
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ff8_use_gamepad_icons = false
 
-# Require the window to be focused to read input events
-# By default this is true
+# Allows the windows to not be focused but still get controller inputs
+# By default this is false
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ff8_require_focus_for_input = false
+ff8_always_capture_input = false
 
 # FPS Limiter
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
