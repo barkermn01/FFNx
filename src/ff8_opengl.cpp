@@ -730,14 +730,13 @@ int ff8_is_window_active()
 			ff8_externals.has_keyboard_gamepad_input();
 		}
 
-		if (simulate_OK_button)
-		{
-			// Flag the button OK as pressed
-			ff8_externals.engine_input_confirmed_buttons[1] = ff8_externals.engine_input_valid_buttons[1] = 0x40;
+	if (simulate_OK_button)
+	{
+		// Flag the button OK as pressed
+		ff8_externals.engine_input_confirmed_buttons[1] = ff8_externals.engine_input_valid_buttons[1] = 0x40;
 
-			// End simulation right here before we press this button by mistake in other windows
-			simulate_OK_button = false;
-		}
+		// End simulation right here before we press this button by mistake in other windows
+		simulate_OK_button = false;
 	}
 
 	return 0;
